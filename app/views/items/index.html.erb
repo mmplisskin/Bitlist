@@ -5,9 +5,16 @@
 <h2 class="subTitle">Account</h2>
 
 	<ul>
-		<% @items.each do |i| %>
-		<p>
-			<%= i.category %>
-		</p>
-		<% end %>
-	</ul>
+    <h2 class="subTitle">Services</h2>
+		  <% @items.each do |item| %>
+  		<p>
+  			<%= item.category %>
+  		</p>
+      <% end %>
+    <h2 class="subTitle">For Sale</h2>
+      <% @items.each do |item| %>
+        <p>
+    			<%= item.category %>
+    		</p>
+
+    <% end %>
