@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  get 'items/'=>"items#index"
+
+
+
+  get "bitlist"=>"items#index"
+  get "items/" =>"items#show", as: :item
+
+
+
+
 
   # get 'items/show'
   #

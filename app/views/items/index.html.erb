@@ -2,19 +2,16 @@
 <!-- <p>Find me in app/views/items/index.html.erb</p> -->
 
 <h2 class="subTitle">Post</h2>
-<h2 class="subTitle">Account</h2>
+<!-- <h2 class="subTitle">Account</h2> -->
 
 	<ul>
-    <h2 class="subTitle">Services</h2>
-		  <% @items.each do |item| %>
-  		<p>
-  			<%= item.category %>
-  		</p>
-      <% end %>
-    <h2 class="subTitle">For Sale</h2>
-      <% @items.each do |item| %>
-        <p>
-    			<%= item.category %>
-    		</p>
 
-    <% end %>
+
+
+				<% @items.where(category_set: "item Cat").each do |i|%>
+			<p>
+				<%= link_to i.category, item_path(i.id)%>
+			</p>
+
+
+			<% end %>
