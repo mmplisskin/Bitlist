@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
 
 
+root 'categories#index'
 
-  get "bitlist"=>"items#index"
-  get "category/" =>"items#category"
+# resources :categories,only: [:show]
+
+
+  get 'category/:name'=> "categories#show", as: :categories
+
+  get 'item/:name'=> "items#show", as: :items
+
+  get 'categories/view'
+
+  get 'categories/edit'
+
+  get 'categories/create'
+
+  get 'categories/destroy'
+
+  get "bitlist"=>"categories#index"
+  # get "category/" =>"items#category"
   # get "category/" =>"items#category", as: :category
 
 

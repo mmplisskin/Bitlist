@@ -1,0 +1,8 @@
+<h1>
+  <%#=@categories[0].name%>
+<%=params[:name]%>
+  </h1>
+
+<%@items.each do |item|%>
+  <p><%=link_to item.name, items_path(item.name)%></p>
+<%end%>

@@ -3,3 +3,9 @@
 
 <!-- <h2 class="subTitle">Post</h2> -->
 <!-- <h2 class="subTitle">Account</h2> -->
+
+
+		<% @categories.each do |i|%>
+
+		<%=link_to i.name, categories_path(i.name) %>
+		<%end%>
