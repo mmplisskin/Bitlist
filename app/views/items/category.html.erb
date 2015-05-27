@@ -1,0 +1,15 @@
+<p>Find me in app/views/category.html.erb</p>
+<h1><%=params[:category]%></h1>
+<%@categories.each do |item|%>
+
+  <p>
+
+  <%= link_to do%>
+  <%=item.name%>
+  <%end%>
+</p>
+
+
+
+
+<% end %>

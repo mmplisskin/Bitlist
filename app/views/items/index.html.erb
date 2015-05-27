@@ -5,13 +5,17 @@
 <!-- <h2 class="subTitle">Account</h2> -->
 
 	<ul>
+		<%@items.where(category_set: "item Cat").each do |i|%>
+			<p>	<%=link_to i.category, category_path(category: i.category)%> </p>
+		<%end%>
 
+			<%-if false %>
+				<% @items.each do |i|%>
 
-
-				<% @items.where(category_set: "item Cat").each do |i|%>
 			<p>
-				<%= link_to i.category, item_path(i.id)%>
+				<%= link_to i.category, category_path(i.category)%>
 			</p>
 
 
 			<% end %>
+			<%end%>

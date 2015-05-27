@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
 
   get "bitlist"=>"items#index"
-  get "items/" =>"items#show", as: :item
+  get "category/" =>"items#category"
+  # get "category/" =>"items#category", as: :category
 
 
 

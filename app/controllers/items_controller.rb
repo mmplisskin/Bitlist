@@ -5,9 +5,13 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item=Item.find_by_id (params[:id])
+    @item=Item.find (params[:id])
   end
 
+  def category
+    @categories=Item.where(category: params[:category])
+
+  end
 
 
   def new
@@ -43,8 +47,6 @@ class ItemsController < ApplicationController
       @item.destroy
       redirect_to items_path
   end
-
-
 
 
 
