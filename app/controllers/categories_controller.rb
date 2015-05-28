@@ -8,13 +8,11 @@ class CategoriesController < ApplicationController
     if params[:name]
 
       @categories = Category.where ("name = '#{params[:name]}'")
-
-
       @items=Item.where("category_id=#{@categories[0].id}")
 
     elsif params[:id]
       @categories = Category.find(params[:id])
-      
+
     end
   end
 

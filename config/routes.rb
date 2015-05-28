@@ -6,12 +6,13 @@ root 'categories#index'
 # # resources :categories,only: [:show]
 #   get 'category/:id' => "categories#show", as: :categories_redirect
 
+get "item/new" => "items#new", as: :new_item
+
 
   get 'category/:name'=> "categories#show", as: :go
 
   get 'item/:name'=> "items#show", as: :items
 
-  # get "item/new" => "items#new", as: :new_item
 
 
 
