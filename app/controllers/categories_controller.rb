@@ -5,15 +5,10 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    if params[:name]
 
-      @categories = Category.where ("name = '#{params[:name]}'")
-      @items=Item.where("category_id=#{@categories[0].id}")
 
-    elsif params[:id]
-      @categories = Category.find(params[:id])
+      @category = Category.find_by(name: params[:name])
 
-    end
   end
 
 

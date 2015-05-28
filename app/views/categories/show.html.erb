@@ -1,12 +1,12 @@
 <h1>categories/show/views
   <%#=@categories[0].name%>
-<%=params[:name]%>
+<%=@category.name%>
   </h1>
 
-<%@items.each do |item|%>
+<%@category.items.each do |item|%>
 <ul>
   <h2>
-  <p><hr><%=link_to item.name, items_path(item.name)%></p></br
+  <p><hr><%=link_to item.name, category_items_path(@category.name, item.name)%></p></br
   </h2>
 </ul>
 <%end%>

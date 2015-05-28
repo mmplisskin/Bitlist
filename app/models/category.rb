@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  belongs_to :items
+  has_many :items
 end

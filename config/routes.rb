@@ -11,7 +11,9 @@ get "item/new" => "items#new", as: :new_item
 
   get 'category/:name'=> "categories#show", as: :go
 
-  get 'item/:name'=> "items#show", as: :items
+  get 'category/:category_name/item/:name' => "items#show", as: :category_items
+
+  
 
 
 
