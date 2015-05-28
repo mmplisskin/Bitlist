@@ -3,22 +3,27 @@ Rails.application.routes.draw do
 
 root 'categories#index'
 
-# resources :categories,only: [:show]
+# # resources :categories,only: [:show]
+#   get 'category/:id' => "categories#show", as: :categories_redirect
 
 
-  get 'category/:name'=> "categories#show", as: :categories
+  get 'category/:name'=> "categories#show", as: :go
 
   get 'item/:name'=> "items#show", as: :items
 
-  get 'categories/view'
+  # get "item/new" => "items#new", as: :new_item
 
-  get 'categories/edit'
 
-  get 'categories/create'
 
-  get 'categories/destroy'
+  get 'category/:id'=>"categories#show", as: :category_by_id
 
-  get "bitlist"=>"categories#index"
+  # get 'categories/edit'
+  #
+  # get 'categories/create'
+  #
+  # get 'categories/destroy'
+
+  # get "bitlist"=>"categories#index"
   # get "category/" =>"items#category"
   # get "category/" =>"items#category", as: :category
 

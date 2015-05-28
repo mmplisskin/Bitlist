@@ -6,12 +6,13 @@ class ItemsController < ApplicationController
 
   def show
     @item=Item.where("name='#{params[:name]}'")
-  end
-
-  def category
-    @categories=Item.where(category: params[:category])
 
   end
+
+  # def category
+  #   @categories=Item.where(category: params[:category])
+  #
+  # end
 
 
   def new

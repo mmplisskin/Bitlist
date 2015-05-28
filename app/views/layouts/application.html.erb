@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Bitlist</title>
+  <title>Bitlist.org</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-  <h1>E COMMERCE</h1>
+<body><header>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <ul class="nav navbar-nav">
+            <li><%= link_to "Home", root_path, class: 'navbar-brand' %></li>
+            <li><%= link_to "Post Item", root_path %></li>
+            <li><%= link_to "Account", root_path %></li>
+            <!-- Example HTML for a bootstrap dropdown -->
+            <!-- <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                </ul>
+            </li> -->
+        </ul>
+    </nav>
+</header>
+
+  <h1><i class="fa fa-btc"></i>itlist</h1>
   <hr>
 <%= yield %>
 <hr>
