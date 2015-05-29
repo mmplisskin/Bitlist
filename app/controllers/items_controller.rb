@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item=Item.where("name='#{params[:name]}'")
+    @item=Item.find_by(params[:id])
   end
 
 

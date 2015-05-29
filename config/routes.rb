@@ -15,7 +15,7 @@ root 'categories#index'
 
   get 'category/:name'=> "categories#show", as: :go
 
-  get 'category/:category_name/item/:name' => "items#show", as: :category_items
+  get 'category/:category_name/item/:id' => "items#show", as: :category_items
 
   get 'category/:category_name/item/:name/edit' => "items#updated", as: :item_edit
 

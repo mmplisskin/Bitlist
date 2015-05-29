@@ -1,23 +1,23 @@
 
 <h1>
 Items Show
-    <%= @item[0].name %>
+    <%= @item.name %>
 </h1>
 
 <h2>
   <i class="fa fa-map-marker"></i>
-  <%= @item[0].location %>
+  <%= @item.location %>
 </h2>
 <h3>
 
-  <%= number_with_precision @item[0].price, :precision => 2 %>
+  <%= number_with_precision @item.price, :precision => 2 %>
       <i class="fa fa-btc"></i>
 <p>  <i class="fa fa-phone"></i>
-  <%= @item[0].phone_number %>
+  <%= @item.phone_number %>
       </p>
       <i class="fa fa-info-circle"></i>
-<p>  <%= @item[0].description %></p>
-<p>  <%=time_ago_in_words(@item[0].created_at)%>
+<p>  <%= @item.description %></p>
+<p>  <%=time_ago_in_words(@item.created_at)%>
 </h3>
 
 <br>
