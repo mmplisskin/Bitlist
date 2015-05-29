@@ -13,7 +13,7 @@
     <nav class="navbar navbar-inverse navbar-static-top">
         <ul class="nav navbar-nav">
             <li><%= link_to "Home", root_path, class: 'navbar-brand' %></li>
-            <li><%= link_to "Post Item", root_path %></li>
+            <li><%= link_to "Post Item", new_item_path %></li>
             <li><%= link_to "Account", root_path %></li>
             <!-- Example HTML for a bootstrap dropdown -->
             <!-- <li class="dropdown">
@@ -34,7 +34,10 @@
 
   <h1><i class="fa fa-btc"></i>itlist</h1>
   <hr>
+  <%= params %>
 <%= yield %>
+
 <hr>
+
 </body>
 </html>

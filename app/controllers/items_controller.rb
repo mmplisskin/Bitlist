@@ -5,19 +5,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-  
+
     @item=Item.where("name='#{params[:name]}'")
+
 
   end
 
-  # def category
-  #   @categories=Item.where(category: params[:category])
-  #
-  # end
-
 
   def new
-		@item=Item.new
+		@items=Item.new
 	end
 
   def create
@@ -30,12 +26,10 @@ class ItemsController < ApplicationController
 		end
 	end
 
-  def edit
-      @item=Item.find(params[:id])
-  end
+
 
   def updated
-      @item=Item.find(params[:id])
+      @item=Item.find(item_params)
 
       if @item.update_attributes(item_params)
         redirect_to items_path
@@ -54,8 +48,7 @@ class ItemsController < ApplicationController
 
 private
   def item_params
-    params.require(:name).permit(:location, :price, :price_decimal, :description, :category, :category_set,
-    :area_code, :phone_number, :user_id)
+    params.require(:name).permit(:location, :price, :description, :category_id, :phone_number, :id)
 
 end
 
