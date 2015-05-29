@@ -1,2 +1,114 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import "font-awesome-sprockets";
+ @import "font-awesome";
+
+
+ #pay-with-btc {
+   position:relative;
+   width:100vw;
+   height:3vw;
+   overflow:hidden;
+   font-family: 'Ubuntu', sans-serif;
+ }
+
+ #pay-with-btc a {
+   text-decoration:none;
+
+ }
+
+ #shine {
+   position:absolute;
+   width:2vw;
+   height:60px;
+   background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+   background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+   background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+   background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+   background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%); /* IE10+ */
+   background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,0.3) 50%,rgba(255,255,255,0) 100%); /* W3C */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+   -webkit-animation:slide 6s linear infinite;
+   -moz-animation:slide 6s linear infinite;
+   animation:slide 6s linear infinite;
+   z-index:2;
+ }
+
+ #logo {
+   position:relative;
+   line-height:44px;
+   color: #337ab7
+ }
+
+ #coin {
+   position:relative;
+   float:left;
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   border-radius:50px;
+   background:#f7931a;
+   color:#fff;
+   font-size:28px;
+   line-height:38px;
+   z-index:5;
+ }
+
+ .fa-btc {
+  //  transform:rotate(-5deg);
+  //  -ms-transform:rotate(-5deg); /* IE 9 */
+  //  -webkit-transform:rotate(-5deg); /* Safari and Chrome */
+   -webkit-animation:spincoin 6s linear infinite;
+   -moz-animation:spincoin 6s linear infinite;
+   animation:spincoin 6s linear infinite;
+ }
+
+ .logo-text {
+   position:relative;
+   font-style:italic;
+   font-weight:bold;
+   font-size: 48px;
+ }
+
+ .accept {
+   position:relative;
+   margin-left:84px;
+   font-style: italic;
+   font-weight: normal;
+   font-size:14px;
+ }
+//this is starting point
+ @-moz-keyframes spincoin {
+   0%  { -moz-transform: rotate(-346deg); }
+   8% { -moz-transform: rotate(0deg); }
+ }
+ @-webkit-keyframes spincoin {
+   0%  { -webkit-transform: rotate(-260deg); }
+   8% { -webkit-transform: rotate(0deg); }
+ }
+ @keyframes spincoin {
+   0%  { -webkit-transform: rotate(-346deg);
+         transform:rotate(-346deg); }
+   8% { -webkit-transform: rotate(0deg);
+         transform:rotate(0deg); }
+ }
+
+ // @-moz-keyframes slide {
+ //   10%  { margin-left:0; }
+ //   30%  { margin-left:2vw; }
+ //   55%  { margin-left:6vw; }
+ //
+ // }
+ // @-webkit-keyframes slide {
+ //   10%  { margin-left:0; }
+ //   30%  { margin-left:2vw; }
+ //   55%  { margin-left:6vw; }
+ //
+ // }
+ // @keyframes slide {
+ //   10%  { margin-left:0; }
+ //   30%  { margin-left:2vw; }
+ //   55%  { margin-left:6vw; }
+ //
+ // }

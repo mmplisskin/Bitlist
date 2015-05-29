@@ -5,12 +5,12 @@ class CategoriesController < ApplicationController
   end
 
   def show
-
-
       @category = Category.find_by(name: params[:name])
-
   end
 
+  def about
+
+  end
 
 
 

@@ -7,21 +7,22 @@ root 'categories#index'
 #   get 'category/:id' => "categories#show", as: :categories_redirect
 
   get "items/new" => "items#new", as: :new_item
+
   post "/items" =>"items#create"
 
+
+  get 'category/about'=>"categories#about"
 
   get 'category/:name'=> "categories#show", as: :go
 
   get 'category/:category_name/item/:name' => "items#show", as: :category_items
 
-
-
-
-
+  get 'category/:category_name/item/:name/edit' => "items#updated", as: :item_edit
 
   get 'category/:id'=>"categories#show", as: :category_by_id
 
-  # get 'categories/edit'
+
+  # get 'categories/edit
   #
   # get 'categories/create'
   #

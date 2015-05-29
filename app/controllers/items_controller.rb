@@ -5,10 +5,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-
     @item=Item.where("name='#{params[:name]}'")
-
-
   end
 
 
@@ -26,9 +23,13 @@ class ItemsController < ApplicationController
 		end
 	end
 
+  def edit
+    @item=Item.where("name='#{params[:name]}'")
+
+  end
 
 
-  def updated
+  def update
       @item=Item.find(item_params)
 
       if @item.update_attributes(item_params)
