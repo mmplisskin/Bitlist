@@ -2,6 +2,7 @@
 <h1>
 Items Show
     <%= @item.name %>
+
 </h1>
 
 <h2>
@@ -21,8 +22,6 @@ Items Show
 </h3>
 
 <br>
-
-
+<%#= link_to 'Edit', edit_category_item_path(@item.category,@item.name, @item.id) %></td>
 <p>
-  <%= link_to "See all #{params[:category_name]}", category_by_id_path(params[:category_name])  %>
-</p>
+  <%#=link_to"back to category", category_path(name =@category.id)%><p>

@@ -3,42 +3,51 @@ Rails.application.routes.draw do
 
 root 'categories#index'
 
-# # resources :categories,only: [:show]
-#   get 'category/:id' => "categories#show", as: :categories_redirect
+#
+get 'categories/:name' => 'categories#show', as: :category
+#
+#
+get 'categories/:name/items/:id' => 'items#show', as: :category_item
 
-  get "items/new" => "items#new", as: :new_item
-
-  post "/items" =>"items#create"
-
-
-  get 'category/about'=>"categories#about"
-
-  get 'category/:name'=> "categories#show", as: :go
-
-  get 'category/:category_name/item/:id' => "items#show", as: :category_items
-
-  get 'category/:category_name/item/:name/edit' => "items#updated", as: :item_edit
-
-  get 'category/:id'=>"categories#show", as: :category_by_id
+get 'categories/:name/items/:id/edit' => 'items#edit', as: :edit_category_item
 
 
-  # get 'categories/edit
+get "items/new" => "items#new", as: :new_item
+
+post "/items" =>"items#create"
+
+get 'category/about'=>"categories#about"
+
+
+
+
+resources :categories, param: :name do
+  resources :items, param: :item_id
+end
+
   #
-  # get 'categories/create'
   #
-  # get 'categories/destroy'
-
-  # get "bitlist"=>"categories#index"
-  # get "category/" =>"items#category"
-  # get "category/" =>"items#category", as: :category
-
-
-
-
-
-  # get 'items/show'
   #
-  # get 'items/view'
+
+  #
+  #
+
+  #
+  #
+  #
+
+  #
+  #
+  # get 'category/:category_name/item/:id' => "items#show", as: :category_items
+  #
+  # get 'category/:category_name/item/:id/edit' => "items#edit"
+  #
+  # patch 'items/:id' => "items#update"
+
+
+
+
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

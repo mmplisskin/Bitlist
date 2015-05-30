@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
 
   def show
       @category = Category.find_by(name: params[:name])
+
+
   end
 
   def about
@@ -14,8 +16,7 @@ class CategoriesController < ApplicationController
 
 
 
-  def edit
-  end
+
 
   def create
   end

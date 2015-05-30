@@ -4,43 +4,51 @@ class ItemsController < ApplicationController
     @items=Item.all
   end
 
+
+
+
   def show
-    @item=Item.find_by(params[:id])
+    @item=Item.find(params[:id])
   end
 
 
   def new
-		@items=Item.new
+		@item=Item.new
 	end
 
   def create
 		@item=Item.new(item_params)
 
 		if @item.save
-			redirect_to root_path
+		redirect_to root_path
 		else
 			render :new
 		end
 	end
 
   def edit
-    @item=Item.where("name='#{params[:name]}'")
+
+    @item=Item.find_by(id: params[:id])
 
   end
 
 
   def update
-      @item=Item.find(item_params)
+
+      # @categories=category(params[:id])
+
+      @item=Item.find(params[:id])
+
 
       if @item.update_attributes(item_params)
-        redirect_to items_path
+        redirect_to root_path
       else
         render :edit
       end
   end
 
   def destroy
-      @item=Item.find(params[:id])
+      @item=Item.find(params[:name])
       @item.destroy
       redirect_to items_path
   end
@@ -49,8 +57,8 @@ class ItemsController < ApplicationController
 
 private
   def item_params
-    params.require(:item, ).permit(:name,:location, :price, :description, :category_id, :phone_number, :id)
+    params.require(:item).permit(:name,:location, :price, :description, :category_id, :phone_number)
 
-end
+  end
 
 end
