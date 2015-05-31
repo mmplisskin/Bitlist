@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   def show
     # require "pry"
     # binding.pry
-    @item=Item.find(params[:id])
+    @item=Item.find(params[:id]||params[:name])
     @category=Category.find(@item.category_id)
   end
 
@@ -59,6 +59,11 @@ class ItemsController < ApplicationController
       @item=Item.find(params[:id])
       @item.destroy
       redirect_to root_path
+  end
+
+  def search
+    # raise params.inspect
+    @item = Item.search(params)
   end
 
 

@@ -1,0 +1,18 @@
+<h1>categories/show/views
+
+
+  </h1>
+
+<%@item.each do |item|%>
+<ul>
+  <h2>
+    <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%></p></br>
+  </h2>
+</ul>
+  <%end%>
+  <%=link_to "All categories", root_path%>
+
+
+
+
+<%= params %>
