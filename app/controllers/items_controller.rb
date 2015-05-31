@@ -48,7 +48,8 @@ class ItemsController < ApplicationController
 
 
       if @item.update_attributes(item_params)
-        redirect_to root_path
+        @category=Category.find(@item.category_id)
+        redirect_to "/categories/#{@category.name}/items/#{@item.id}"
       else
         render :edit
       end

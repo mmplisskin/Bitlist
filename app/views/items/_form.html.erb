@@ -12,7 +12,7 @@
 		<%= f.text_area :description %>
 	</h4>
 	<h4>
-
+		<%= f.label :Category %>
 
 		<%= f.collection_select :category_id, Category.order(:name),:id,:name, include_blank: false %>
 </h4>

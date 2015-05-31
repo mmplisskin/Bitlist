@@ -40,6 +40,13 @@ patch "users/:id"=> "users#update"
 delete "/users/:id" => "users#destroy"
 
 
+get '/login'     => 'sessions#new'
+post '/login'    => 'sessions#create'
+delete '/logout' => 'sessions#destroy'
+
+
+# resources :users
+
 # resources :items do
 #   collection do
 #   get 'search'
