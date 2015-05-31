@@ -22,6 +22,12 @@ Items Show
 </h3>
 
 <br>
-<%#= link_to 'Edit', edit_category_item_path(@item.category,@item.name, @item.id) %></td>
+
+<%= link_to 'Edit', edit_category_item_path %>
+<%#= link_to 'Delete', edit_category_item_path %>
+<%= link_to 'Delete', item_path,
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+</td>
 <p>
-  <%#=link_to"back to category", category_path(name =@category.id)%><p>
+  <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>

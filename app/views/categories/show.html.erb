@@ -6,11 +6,13 @@
 <%@category.items.each do |item|%>
 <ul>
   <h2>
-  <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%></p></br
+    <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%></p></br>
   </h2>
 </ul>
-<%end%>
+  <%end%>
+  <%=link_to "All categories", root_path%>
+
+
+
 
 <%= params %>
-
-<%=link_to "All categories", root_path%>

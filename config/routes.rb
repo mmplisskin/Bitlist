@@ -12,18 +12,27 @@ get 'categories/:name/items/:id' => 'items#show', as: :category_item
 get 'categories/:name/items/:id/edit' => 'items#edit', as: :edit_category_item
 
 
+
 get "items/new" => "items#new", as: :new_item
 
-post "/items" =>"items#create"
+post "/items" => "items#create"
 
-get 'category/about'=>"categories#about"
+get 'category/about'=> "categories#about"
+
+get 'items/:id' => "items#show", as: :item
+
+patch 'items/:id' => "items#update"
+
+delete 'items/:id' => "items#destroy"
 
 
+# DELETE /categories/:category_name/items/:item_id(.:format)      items#destroy
 
 
-resources :categories, param: :name do
-  resources :items, param: :item_id
-end
+#
+# resources :categories, param: :name do
+  # resources :items, param: :item_id
+# end
 
   #
   #

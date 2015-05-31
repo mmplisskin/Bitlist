@@ -8,7 +8,10 @@ class ItemsController < ApplicationController
 
 
   def show
+    # require "pry"
+    # binding.pry
     @item=Item.find(params[:id])
+    @category=Category.find(@item.category_id)
   end
 
 
@@ -20,7 +23,10 @@ class ItemsController < ApplicationController
 		@item=Item.new(item_params)
 
 		if @item.save
-		redirect_to root_path
+      @category=Category.find(@item.category_id)
+#variable for view  #model
+		    redirect_to "/categories/#{@category.name}/items/#{@item.id}"
+
 		else
 			render :new
 		end
@@ -28,8 +34,9 @@ class ItemsController < ApplicationController
 
   def edit
 
-    @item=Item.find_by(id: params[:id])
+    @item = Item.find_by(id: params[:id])
 
+    logger.info @item.inspect
   end
 
 
@@ -48,9 +55,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-      @item=Item.find(params[:name])
+    # logger.info @item.inspect
+      @item=Item.find(params[:id])
       @item.destroy
-      redirect_to items_path
+      redirect_to root_path
   end
 
 
