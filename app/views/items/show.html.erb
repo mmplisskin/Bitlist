@@ -2,6 +2,7 @@
 <h1>
 Items Show
     <%= @item.name %>
+    <%= @rate %>
 
 </h1>
 
@@ -11,8 +12,12 @@ Items Show
 </h2>
 <h3>
 
-  <%= number_with_precision @item.price, :precision => 2 %>
-      <i class="fa fa-btc"></i>
+  <%= number_with_precision @item.price.to_f, :precision => 2 %>
+
+    <i class="fa fa-btc"></i>
+
+    <p> <%= number_with_precision @dollar_amount=@rate*@item.price, :precision => 2 %>
+      <i class="fa fa-usd"></i></p>
 <p>  <i class="fa fa-phone"></i>
   <%= @item.phone_number %>
       </p>
@@ -22,6 +27,8 @@ Items Show
 </h3>
 
 <br>
+
+
 
 <%= link_to 'Edit', edit_category_item_path %>
 <%#= link_to 'Delete', edit_category_item_path %>

@@ -29,8 +29,10 @@
                     </center>
                   </div>
                   <div class="logo-text"><%= link_to "Bitlist", root_path %></div>
+
+
                 </div>
-                <div class="accept"></div>
+                <div class="accept" id="logo"></div>
               </a>
             </div>
 
@@ -39,6 +41,7 @@
           <li><%= link_to "About", category_about_path%></li>
                 <li><%= link_to "Post Item", new_item_path %></li>
                 <li><%= link_to "Account", users_path %></li>
+                <li div id="logo" ><%=  @rate %></li>
 
 
             <!-- Example HTML for a bootstrap dropdown -->

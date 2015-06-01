@@ -3,8 +3,13 @@
 
 
 <% if current_user %>
-  Logged in as: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+  Hey: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+
 <% else %>
   <%= link_to 'Log In', login_path %>
   <%= link_to 'Sign Up', new_user_path %>
 <% end %>
+
+<!-- <% @users.each do |user| %>
+
+<% end %> -->

@@ -12,7 +12,18 @@ class ItemsController < ApplicationController
     # binding.pry
     @item=Item.find(params[:id]||params[:name])
     @category=Category.find(@item.category_id)
+
+
+    response = Net::HTTP.get_response(URI.parse("https://api.bitcoinaverage.com/exchanges/USD"))
+    parsed_response = JSON.parse(response.body)
+    rate=parsed_response["bitfinex"]["rates"]["last"]
+    @rate=rate.to_f
+
+
+
+
   end
+
 
 
   def new
