@@ -31,10 +31,15 @@ class ItemsController < ApplicationController
 	end
 
   def create
+
 		@item=Item.new(item_params)
+    # @item.user_id = current_user.id
+
+
 
 		if @item.save
       @category=Category.find(@item.category_id)
+
 #variable for view  #model
 		    redirect_to "/categories/#{@category.name}/items/#{@item.id}"
 
@@ -82,7 +87,7 @@ class ItemsController < ApplicationController
 
 private
   def item_params
-    params.require(:item).permit(:name,:location, :price, :description, :category_id, :phone_number)
+    params.require(:item).permit(:name,:location, :price, :description, :category_id, :phone_number, :user_id)
 
   end
 
