@@ -38,9 +38,15 @@
 
           </li>
 
-          <li><%= link_to "About", category_about_path%></li>
+          <li><%= link_to "About", static_pages_about_path%></li>
                 <li><%= link_to "Post Item", new_item_path %></li>
+
+                <% if current_user%>
+                <li><%= link_to current_user.name + "'s Account",logout_path, method: :delete%></li>
+                <% else %>
                 <li><%= link_to "Account", users_path %></li>
+                  <% end %>
+
                 <li div id="logo" ><%#=  @rate %></li>
 
 
@@ -61,10 +67,12 @@
     </nav>
 </header>
 
+
   <!-- <h1><i class="fa fa-btc"></i>itlist</h1>
   <hr> -->
   <%= params %>
 <%= yield %>
+
 
 <hr>
 

@@ -3,15 +3,26 @@
 Items Show
     <%= @item.name %>
     <%= @rate %>
-    <%= current_user.name %>
-    <%= current_user.id %>
-  <%#= @item.user_id %>
+    <%#= current_user.name %>
+    <%#= current_user.id %>
+  <%#=   @users.where(@item.user.id == @users.id ) %>
+  <%#=  @User.where(Item.user_id==User.user_id)%>
+
+
+
+
 </h1>
 
 <h2>
   <i class="fa fa-map-marker"></i>
   <%= @item.location %>
 </h2>
+
+<h2>
+  Posted by <%= @user.name %>
+</h2>
+
+
 <h3>
 
   <%= number_with_precision @item.price.to_f, :precision => 2 %>

@@ -17,7 +17,7 @@ get "items/new" => "items#new", as: :new_item
 
 post "/items" => "items#create"
 
-get 'category/about'=> "categories#about"
+get 'static_pages/about'=> "static_pages#about"
 
 get 'items/:id' => "items#show", as: :item
 
@@ -43,6 +43,21 @@ delete "/users/:id" => "users#destroy"
 get '/login'     => 'sessions#new'
 post '/login'    => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
+
+
+# get "/auth/:provider/callback" => "sessions#create"
+#
+#   get 'sessions/new'
+#
+#   get 'sessions/create'
+#
+#   get 'sessions/show'
+#
+#   get 'sessions/destroy'
+#
+#   get 'sessions/show'
+#
+#   get 'auth/logout' => 'sessions#destroy'
 
 
 # resources :users

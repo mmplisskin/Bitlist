@@ -27,6 +27,13 @@ gem 'font-awesome-sass'
 
 gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'omniauth'
+
+gem 'omniauth-github'
+
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
