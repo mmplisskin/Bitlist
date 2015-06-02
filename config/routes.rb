@@ -11,13 +11,13 @@ get 'categories/:name/items/:id' => 'items#show', as: :category_item
 
 get 'categories/:name/items/:id/edit' => 'items#edit', as: :edit_category_item
 
-
+get 'static_pages/about'=> "static_pages#about"
 
 get "items/new" => "items#new", as: :new_item
 
 post "/items" => "items#create"
 
-get 'category/about'=> "categories#about"
+
 
 get 'items/:id' => "items#show", as: :item
 
@@ -43,6 +43,8 @@ delete "/users/:id" => "users#destroy"
 get '/login'     => 'sessions#new'
 post '/login'    => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
+
+
 
 
 # resources :users

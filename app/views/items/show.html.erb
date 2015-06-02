@@ -3,8 +3,7 @@
 Items Show
     <%= @item.name %>
     <%= @rate %>
-    <%= current_user.name %>
-    <%= current_user.id %>
+
   <%#= @item.user_id %>
 </h1>
 
@@ -26,6 +25,7 @@ Items Show
       <i class="fa fa-info-circle"></i>
 <p>  <%= @item.description %></p>
 <p>  <%=time_ago_in_words(@item.created_at)%>
+  Posted by <%= @user.name %>
 </h3>
 
 <br>

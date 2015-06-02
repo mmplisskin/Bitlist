@@ -1,4 +1,5 @@
-class ItemsController < ApplicationController
+ class ItemsController < ApplicationController
+   include SessionsHelper
 
   def index
     @items=Item.all
@@ -11,6 +12,7 @@ class ItemsController < ApplicationController
     # require "pry"
     # binding.pry
     @item=Item.find(params[:id]||params[:name])
+    @user=User.find(@item.user_id)
     @category=Category.find(@item.category_id)
 
 
@@ -33,7 +35,7 @@ class ItemsController < ApplicationController
   def create
 
 		@item=Item.new(item_params)
-    # @item.user_id = current_user.id
+    @item.user_id = current_user.id
 
 
 
