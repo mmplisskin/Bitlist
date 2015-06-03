@@ -3,7 +3,14 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+  categories = Category.create([{ name: 'Art' }, { name: 'Cars' }, { name: 'Books' },
+    { name: 'Collectibles' }, { name: 'Computers' }, { name: 'Electronics' },
+    { name: 'Furniture' }, { name: 'Heavy Machinery' },
+    { name: 'Heavy Machinery' },
+    { name: 'Jewlrey' }, { name: 'Materials' }, { name: 'Mining Hardware' },
+    { name: 'Sporting Goods' }, { name: 'Toys' }, { name: 'vehicles' },
+    { name: 'wallets' }, 
+    ])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
   # item_1=Item.new(name:"Zeus Mining Rig",
