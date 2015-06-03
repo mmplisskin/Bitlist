@@ -12,7 +12,7 @@
     # require "pry"
     # binding.pry
     @item=Item.find(params[:id]||params[:name])
-    @user=User.find(@item.id)
+    @user=User.find(@item.user_id)
     @category=Category.find(@item.category_id)
 
 
