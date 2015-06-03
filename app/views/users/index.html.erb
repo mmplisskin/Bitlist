@@ -1,17 +1,23 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 <% if current_user %>
+<%= link_to 'Log Out', logout_path, method: :delete %>
 <h1><%= "Hi "+ "#{current_user.name}"%></h1>
 <% end %>
 
 
 
 <% if current_user %>
-  Hey: <%= current_user.name %> <%= link_to 'Log Out', logout_path, method: :delete %>
+  Hey: <%= current_user.name %>
   <%= current_user.id %>
 <% else %>
   <%= link_to 'Log In', login_path %>
   <%= link_to 'Sign Up', new_user_path %>
+<% end %>
+
+
+<%@current_user.items.each do |item|%>
+<%= item.name %>
 <% end %>
 
 
