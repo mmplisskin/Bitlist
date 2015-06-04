@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150604052515) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
+    t.string   "location"
     t.string   "description"
     t.string   "category"
     t.integer  "phone_number"
