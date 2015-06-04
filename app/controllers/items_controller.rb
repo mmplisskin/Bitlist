@@ -9,11 +9,14 @@
 
 
   def show
-    # require "pry"
-    # binding.pry
+
     @item=Item.find(params[:id]||params[:name])
-    @user=User.find(@item.user_id)
     @category=Category.find(@item.category_id)
+
+    if @item.user_id !=nil
+      @user=User.find(@item.user_id)
+    end
+
 
 
     response = Net::HTTP.get_response(URI.parse("https://api.bitcoinaverage.com/exchanges/USD"))
@@ -35,15 +38,16 @@
   def create
 
 		@item=Item.new(item_params)
-    @item.user_id = current_user.id
 
+    if current_user
+    @item.user_id = current_user.id
+    end
 
 
 		if @item.save
       @category=Category.find(@item.category_id)
 
-#variable for view  #model
-		    redirect_to "/categories/#{@category.name}/items/#{@item.id}"
+		    redirect_to category_item_path(@category.name, @item.id)
 
 		else
 			render :new
@@ -51,10 +55,12 @@
 	end
 
   def edit
-
     @item = Item.find_by(id: params[:id])
 
-    logger.info @item.inspect
+    unless current_user && current_user.id == @item.user_id
+      redirect_to root_path
+      logger.info @item.inspect
+    end
   end
 
 

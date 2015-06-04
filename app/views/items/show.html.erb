@@ -24,13 +24,19 @@ Items Show
       </p>
       <i class="fa fa-info-circle"></i>
 <p>  <%= @item.description %></p>
+      <% if @item.user_id !=nil %>
+        Posted by <%= @user.name%>
+        <% end %>
 <p>  <%=time_ago_in_words(@item.created_at)%>
-  Posted by <%= @user.name %>
+
+
+
 </h3>
 
 <br>
 
 
+<% if current_user != nil && current_user.id == @item.user_id %>
 
 <%= link_to 'Edit', edit_category_item_path %>
 <%#= link_to 'Delete', edit_category_item_path %>
@@ -40,3 +46,4 @@ Items Show
 </td>
 <p>
   <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
+<%end  %>
