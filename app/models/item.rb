@@ -11,6 +11,22 @@ class Item < ActiveRecord::Base
 #   end
 # end
 
+geocoded_by :full_address
+after_validation :geocode
+
+def full_address
+  [city, state, zip].join(', ')
+end
+
+
+def self.search(params)
+  items = Item.where(category_id: params[:category].to_i)
+  items = items.where("name like? or description like?", "#%{params[:search]}%","#%{params[:search]}%") if params[:search].present?
+  items = items.near(params[:location], 20) if params[:location].present?
+  items
+
+
+end
 
 
 require "rubygems"

@@ -10,7 +10,8 @@
 
   def show
 
-    @item=Item.find(params[:id]||params[:name])
+    @item=Item.find(params[:id])
+
     @category=Category.find(@item.category_id)
 
     if @item.user_id !=nil
@@ -87,8 +88,7 @@
   end
 
   def search
-    # raise params.inspect
-    @item = Item.search(params)
+    @items = Item.search(params)
   end
 
 

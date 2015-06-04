@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories=Category.all
-  
+
 
   end
 
@@ -10,20 +10,5 @@ class CategoriesController < ApplicationController
       @category = Category.find_by(name: params[:name])
 
 
-
-  end
-
-  def about
-
-  end
-
-
-
-
-
-  def create
-  end
-
-  def destroy
-  end
+    end
 end

@@ -3,7 +3,7 @@
 
   </h1>
 
-<%@item.each do |item|%>
+<%@items.each do |item|%>
 <ul>
   <h2>
     <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%></p></br>

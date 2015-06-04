@@ -26,6 +26,7 @@ patch 'items/:id' => "items#update"
 delete 'items/:id' => "items#destroy"
 
 
+
 get "users"=> "users#index"
 post "/users" => "users#create"
 get "users/new"=> "users#new", as: :new_user
@@ -44,10 +45,11 @@ get '/login'     => 'sessions#new'
 post '/login'    => 'sessions#create'
 delete '/logout' => 'sessions#destroy'
 
+ get '/search' => "items#search", as: :search_items
 
 
 
-# resources :users
+# resources :items
 
 # resources :items do
 #   collection do
