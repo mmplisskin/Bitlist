@@ -26,12 +26,6 @@ gem 'font-awesome-sass'
 
 gem 'geocoder'
 
-gem 'underscore-rails'
-
-gem 'gmaps4rails'
-
-
-
 
 gem 'bcrypt', '~> 3.1.7'
 

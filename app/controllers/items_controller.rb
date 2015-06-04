@@ -5,11 +5,10 @@
   def index
     @items=Item.all
 
-    @hash = Gmaps4rails.build_markers(@items) do |item, marker|
-      marker.lat item.latitude
-      marker.lng item.longitude
+
+
+
   end
-end
 
 
 
@@ -18,6 +17,7 @@ end
     @item=Item.find(params[:id])
 
     @category=Category.find(@item.category_id)
+
 
     if @item.user_id !=nil
       @user=User.find(@item.user_id)

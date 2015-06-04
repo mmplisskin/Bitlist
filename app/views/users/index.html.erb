@@ -2,19 +2,19 @@
 
 
 <% if current_user %>
-<%= current_user.id %>
+
   <h1><%= "Hi "+ "#{current_user.name}"%></h1>
 
     <% if  @current_user.items.all.size == 0 %>
             You have not created any items :(
-      <%else %>
-                Here are your bits!
-    <% end %>
 
-    <%@current_user.items.each do |item|%>
+      <% else %>
+            Here are your bits!
+            <%@current_user.items.each do |item|%>
 
-      <p><%=link_to item.name, category_item_path(item.category_id,item.id) %>
-          <%#=link_to "edit", edit_category_item_path(item.category_id,item.id) %></p>
+              <p><%=link_to item.name, category_item_path(item.category_id,item.id) %>
+                  <%=link_to "edit", edit_category_item_path(item.category_id,item.id) %></p>
+          <% end %>
     <% end %>
 
 <% else %>
