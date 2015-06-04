@@ -46,11 +46,9 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 
 
-
+gem 'pg'
 
 group :production do
-  gem 'pg'
-
   gem 'rails_12factor'
 end
 
