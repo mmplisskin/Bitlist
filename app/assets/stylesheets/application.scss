@@ -94,6 +94,11 @@
          transform:rotate(0deg); }
  }
 
+
+
+ textarea {
+     resize: none;
+     }
  // @-moz-keyframes slide {
  //   10%  { margin-left:0; }
  //   30%  { margin-left:2vw; }

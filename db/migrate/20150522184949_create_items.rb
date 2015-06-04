@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :description
       t.string :category
       t.string :category_set
-      t.integer :phone_number
+      t.string :phone_number
       t.integer :user_id
 
       t.timestamps null: false
