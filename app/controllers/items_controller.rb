@@ -4,7 +4,12 @@
 
   def index
     @items=Item.all
+
+    @hash = Gmaps4rails.build_markers(@items) do |item, marker|
+      marker.lat item.latitude
+      marker.lng item.longitude
   end
+end
 
 
 
@@ -20,13 +25,10 @@
 
 
 
-    response = Net::HTTP.get_response(URI.parse("https://api.bitcoinaverage.com/exchanges/USD"))
-    parsed_response = JSON.parse(response.body)
-    rate=parsed_response["bitfinex"]["rates"]["last"]
-    @rate=rate.to_f
-
-
-
+      response = Net::HTTP.get_response(URI.parse("https://api.bitcoinaverage.com/exchanges/USD"))
+      parsed_response = JSON.parse(response.body)
+      rate=parsed_response["bitfinex"]["rates"]["last"]
+      @rate=rate.to_f
 
   end
 
@@ -41,9 +43,8 @@
 		@item=Item.new(item_params)
 
     if current_user
-    @item.user_id = current_user.id
+      @item.user_id = current_user.id
     end
-
 
 		if @item.save
       @category=Category.find(@item.category_id)
