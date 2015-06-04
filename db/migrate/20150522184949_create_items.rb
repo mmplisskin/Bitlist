@@ -8,7 +8,6 @@ class CreateItems < ActiveRecord::Migration
       t.string :description
       t.string :category
       t.string :category_set
-      t.integer :area_code
       t.integer :phone_number
       t.integer :user_id
 
