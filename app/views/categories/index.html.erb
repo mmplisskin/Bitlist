@@ -1,12 +1,7 @@
 
 <p>Find me in app/views/categories/index.html.erb</p>
 
-<%= form_tag search_items_path, method: :get do |f| %>
-<%= text_field_tag :search, nil, placeholder: 'search' %>
-<%= text_field_tag :location, nil, placeholder: 'near' %>
 
-<%= submit_tag ">" %>
-<% end %>
 
 		<% @categories.each do |category|%>
 

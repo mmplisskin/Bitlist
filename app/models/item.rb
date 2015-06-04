@@ -15,16 +15,14 @@ geocoded_by :full_address
 after_validation :geocode
 
 def full_address
-  [city, state, zip].join(', ')
+  [city, state, zipcode].join(', ')
 end
 
 
 def self.search(params)
-  items = Item.where(category_id: params[:category].to_i)
-  items = items.where("name like? or description like?", "#%{params[:search]}%","#%{params[:search]}%") if params[:search].present?
+  items = Item.where("name like? or description like?", params[:search],params[:search]) if params[:search].present?
   items = items.near(params[:location], 20) if params[:location].present?
   items
-
 
 end
 
