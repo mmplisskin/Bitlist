@@ -2,18 +2,18 @@ class UsersController < ApplicationController
   include SessionsHelper
   def index
     @users=User.all
-  
+
 
   end
 
   def show
     @user=User.find(params[:id])
-    @item=Item.find(@user_id)
-    @user=User.find(@item.user_id)
+    # @item=Item.find(@user_id)
+    # @user=User.find(@item.user_id)
   end
 
   def edit
-    @user=User.find_by(params[:id])
+    @user=User.find(params[:id])
   end
 
   def update

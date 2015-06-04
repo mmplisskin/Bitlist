@@ -1,7 +1,8 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-<%= if current_user%>
-  <%= current_user.name %> 
+
+<%if current_user !=nil%>
   <%= @user.name %>
-  <%= @user.email %>
+
 <%= time_ago_in_words(@user.created_at) %>
+<% end %>

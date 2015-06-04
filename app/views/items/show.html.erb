@@ -9,7 +9,6 @@ Items Show
 
 <h2>
   <i class="fa fa-map-marker"></i>
-  <%= @item.location %>
 </h2>
 <h3>
 
@@ -20,8 +19,13 @@ Items Show
     <p> <%= number_with_precision @dollar_amount=@rate*@item.price, :precision => 2 %>
       <i class="fa fa-usd"></i></p>
 <p>  <i class="fa fa-phone"></i>
-  <%= @item.phone_number %>
+
+<p>  <%= @item.phone_number %><p>
+  <p>   <%= @item.city %><p>
+  <%= @item.state %>
+  <%= @item.zip %>
       </p>
+
       <i class="fa fa-info-circle"></i>
 <p>  <%= @item.description %></p>
       <% if @item.user_id !=nil %>
