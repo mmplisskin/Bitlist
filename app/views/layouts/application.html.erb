@@ -3,10 +3,12 @@
 <head>
   <title>Bitlist.org</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon-bitcoin.ico' %>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//maps.googleapis.com/maps/api/js"></script>
 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body><header>

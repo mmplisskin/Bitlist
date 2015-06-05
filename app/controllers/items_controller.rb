@@ -4,10 +4,14 @@
 
   def index
     @items=Item.all
-
-
-
-
+    respond_to do |format|
+        format.html {
+            render
+        }
+        format.json {
+            render json: @items
+        }
+    end
   end
 
 
@@ -28,7 +32,21 @@
       response = Net::HTTP.get_response(URI.parse("https://api.bitcoinaverage.com/exchanges/USD"))
       parsed_response = JSON.parse(response.body)
       rate=parsed_response["bitfinex"]["rates"]["last"]
+
       @rate=rate.to_f
+
+      respond_to do |format|
+          format.html {
+              render
+          }
+          format.json {
+              render json: @item
+          }
+
+
+
+
+      end
 
   end
 

@@ -48,22 +48,23 @@ delete '/logout' => 'sessions#destroy'
  get '/search' => "items#search", as: :search_items
 
 
+ # resources :items, :defaults => { :format => 'json' }
 
-# resources :items
+# resources :items format JSON
 
 # resources :items do
 #   collection do
 #   get 'search'
 #   end
-#   end
+# end
 
 # DELETE /categories/:category_name/items/:item_id(.:format)      items#destroy
 
 
 #
-# resources :categories, param: :name do
-  # resources :items, param: :item_id
-# end
+resources :categories, :name => { :format => 'json' } do
+  resources :items, :item_id => { :format => 'json' }
+end
 
   #
   #
