@@ -30,6 +30,9 @@ Items Show
       <i class="fa fa-usd"></i></p>
 <p>  <i class="fa fa-phone"></i>
 
+        <% if @item.image? %>
+<%= image_tag @item.image.url(:large) %>
+        <% end %>
 <p>  <%= @item.phone_number %><p>
   <p>   <%= @item.city %><p>
   <%= @item.state %>

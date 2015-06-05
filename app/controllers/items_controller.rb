@@ -114,7 +114,7 @@
 
 private
   def item_params
-    params.require(:item).permit(:name, :city, :state, :zip, :price, :description, :category_id, :phone_number, :user_id)
+    params.require(:item).permit(:name, :city, :state, :zip, :price, :description, :image, :category_id, :phone_number, :user_id)
 
   end
 

@@ -6,7 +6,10 @@
 <%@category.items.each do |item|%>
 <ul>
   <h2>
-    <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%></p></br>
+    <p><hr><%=link_to item.name, category_item_path(@category.name, item.id)%>
+            <%= item.city %>
+            <%= item.zipcode %>
+    </p></br>
   </h2>
 </ul>
   <%end%>
