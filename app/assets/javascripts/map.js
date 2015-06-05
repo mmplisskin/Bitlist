@@ -7,7 +7,7 @@ function initialize() {
   var url = window.location.origin + window.location.pathname + ".json";
 
   $.get(url, function(results){
-
+    var my_content = results["name"]
     var lat = results["latitude"];
     var long = results["longitude"];
 
@@ -30,6 +30,12 @@ var marker = new google.maps.Marker({
   });
 
 marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content: my_content
+  });
+
+infowindow.open(map,marker);
 
 })
 

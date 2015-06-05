@@ -4,6 +4,7 @@
 <% if current_user %>
 
   <h1><%= "Hi "+ "#{current_user.name}"%></h1>
+  <h4>  <%= link_to "Update Account", edit_user_path(current_user)%></h4>
 
     <% if  @current_user.items.all.size == 0 %>
             You have not created any items :(

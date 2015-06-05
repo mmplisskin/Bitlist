@@ -28,8 +28,11 @@ delete 'items/:id' => "items#destroy"
 
 
 get "users"=> "users#index"
+
 post "/users" => "users#create"
+
 get "users/new"=> "users#new", as: :new_user
+
 get "users/:id/edit"=> "users#edit", as: :edit_user
 
 
