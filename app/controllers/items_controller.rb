@@ -64,8 +64,8 @@
     end
 
 		if @item.save
-      @category=Category.find(@item.category_id)
-
+        @category=Category.find(@item.category_id)
+        flash.now.notice = 'Item was successfully listed!.'
 		    redirect_to category_item_path(@category.name, @item.id)
 
 		else
@@ -95,7 +95,7 @@
 
       if @item.update_attributes(item_params)
         @category=Category.find(@item.category_id)
-        redirect_to "/categories/#{@category.name}/items/#{@item.id}"
+        redirect_to category_item_path(@category.name, @item.id)
       else
         render :edit
       end

@@ -9,8 +9,10 @@ class SessionsController < ApplicationController
       # we'll store the user's ID to make for a fast
       # User.find later on
       session[:user_id] = user.id.to_s
+      flash[:notice] = "Welcome Back!"
       redirect_to users_path
     else
+      flash.now[:error] = "Try again pls"
       render :new
     end
   end
@@ -18,6 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     # delete that key/value pair in our sessions hash
     session.delete(:user_id)
+    flash[:notice] = "You have successfully logged out."
     redirect_to login_path
   end
 end

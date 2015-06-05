@@ -6,14 +6,12 @@
   categories = Category.create([{ name: 'Art' }, { name: 'Cars' }, { name: 'Books' },
     { name: 'Collectibles' }, { name: 'Computers' }, { name: 'Electronics' },
     { name: 'Furniture' }, { name: 'Heavy Machinery' },
-    { name: 'Jewlrey' }, { name: 'Materials' }, { name: 'Mining Hardware' },
+    { name: 'Jewelry' }, { name: 'Materials' }, { name: 'Mining Hardware' },
     { name: 'Sporting Goods' }, { name: 'Toys' }, { name: 'vehicles' },
     { name: 'wallets' },
     ])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
-  # item_1=Item.new(name:"Zeus Mining Rig",
-  # location:"Hollywood",
-  # price:3,
-  # price_decimal:34,description:"this is a cool unit",
-  # category:"Minning Rigs",category_set:"item",area_code:925,phone_number:5505538,user_id:4302)
+  #
+  # items =Item.create(name:"Zeus Mining Rig",
+  # price:3.24, description:"this is a cool unit it will help you make lots of btc",
+  # category:"Minning Rigs",zipcode:90028,phone_number:5505538765,user_id:3)
