@@ -1,63 +1,38 @@
-// The init function needs to run on load
-google.maps.event.addDomListener(window, 'load', initialize_my_map);
-google.maps.event.addDomListener(window, 'page:load', initialize_my_map)
 
-// Define a function that should be ran on load (yay function hoisting)
-function initialize_my_map() {
-
-    // Find the map DIV (if it exists)
-    var el = document.getElementById('address-map');
-
-    // Bail out if there's not an address map on the page
-    if(!el) return;
+google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'page:load', initialize)
 
 
-    // Get the page's marker data from the JSON API
-    var url = window.location.origin + window.location.pathname + ".json";
-    console.log(url);
-    // Ajax the data URL
-    $.get(url, function(results){
+function initialize() {
+  var url = window.location.origin + window.location.pathname + ".json";
 
-        console.log("Data returned from " + url, results)
+  $.get(url, function(results){
 
-        // Wrap the data in an array if it's not one already
-        if(!(results instanceof Array)) results = [results];
+    var lat = results["latitude"];
+    var long = results["longitude"];
 
-            // Create a map
-            var mapProps = {
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-            var map = new google.maps.Map(el, mapProps);
+    var myCenter = new google.maps.LatLng(lat,long);
+    var marker;
 
-            // Bounds are cool because they center our map for us
-            var bounds = new google.maps.LatLngBounds();
+  var mapProp = {
 
-            // Track an array of our markers
-            var markers = [];
+    center: myCenter,
+    zoom:16,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
+var marker = new google.maps.Marker({
 
-                // result now represents a single geocoded address
-                var coord = value[0].geometry.location
+  position:myCenter,
 
-                // Create and place a marker
-                var marker = new google.maps.Marker({position: coord})
-                marker.setMap(map)
-                markers.push(marker)
+  // animation:google.maps.Animation.BOUNCE
+  });
 
-                // Add the coordinates to the bounds (so we can center the map)
-                bounds.extend(coord)
+marker.setMap(map);
 
-                // Create an info window
-                var infowindow = new google.maps.InfoWindow({
-                    content: "<h1>" + results[idx].name + "</h1>" + value[0].formatted_address
-                });
+})
 
-                // Open it above the marker
-                infowindow.open(map, markers[idx]);
-
-            })
-
-            // Center and fit the map using the bounds
-            map.fitBounds(bounds);
 
 }
+google.maps.event.addDomListener(window, 'load', initialize);
