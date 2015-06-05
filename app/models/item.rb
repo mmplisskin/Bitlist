@@ -1,6 +1,12 @@
 class Item < ActiveRecord::Base
   belongs_to :categories
   belongs_to :user
+  validates :name, presence: true
+  validates :city, presence: true
+  validates :state, presence: true
+  validates :description, presence: true, uniqueness: true
+  validates :price, presence: true
+
 
   has_attached_file :image, styles: { small: "64x64", med: "100x100", large: "200x200" }
     validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

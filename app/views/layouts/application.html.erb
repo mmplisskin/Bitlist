@@ -82,9 +82,27 @@
   <!-- <h1><i class="fa fa-btc"></i>itlist</h1>
   <hr> -->
   <%= params %>
-<%= yield %>
 
-<hr>
+
+
+
+
+    <% if flash[:error] %>
+        <%#= flash.inspect %>
+      <% flash.each do |error, message| %>
+        <div class="alert alert-danger" role="alert"><% error %><%= message %></div>
+      <% end %>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <% flash.each do |notice, message| %>
+      <div class="alert alert-info" role="alert"><%= flash[:notice] %></div>
+      <% end %>
+    <% end %>
+    <%= yield %>
+  </div>
+
+
 
 </body>
 </html>

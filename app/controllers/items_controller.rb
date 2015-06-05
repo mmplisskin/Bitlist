@@ -1,6 +1,5 @@
  class ItemsController < ApplicationController
-
-
+  # before_filter :authenticate_user, only: [:new, :create]
 
   def index
     @items=Item.all
@@ -70,7 +69,10 @@
 		    redirect_to category_item_path(@category.name, @item.id)
 
 		else
-			render :new
+      flash.now[:error] = @item.errors.full_messages
+      render :new
+
+
 		end
 	end
 

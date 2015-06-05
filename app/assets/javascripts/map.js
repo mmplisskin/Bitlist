@@ -17,19 +17,27 @@ function initialize() {
   var mapProp = {
 
     center: myCenter,
-    zoom:16,
-    mapTypeId:google.maps.MapTypeId.ROADMAP
+    zoom:12,
+    zoomControl:false,
+    panControl:false,
+    mapTypeId:google.maps.MapTypeId.HYBRID
   };
   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-
+var image = 'app/assets/images/Gold-Bitcoin.png'
 var marker = new google.maps.Marker({
 
   position:myCenter,
+  icon: image
 
   // animation:google.maps.Animation.BOUNCE
   });
 
 marker.setMap(map);
+
+google.maps.event.addListener(marker,'click',function() {
+  map.setZoom(16);
+  map.setCenter(marker.getPosition());
+  });
 
 var infowindow = new google.maps.InfoWindow({
   content: my_content
