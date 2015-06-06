@@ -1,8 +1,23 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 
-<%if current_user !=nil%>
-  <%= @user.name %>
 
-<%= time_ago_in_words(@user.created_at) %>
-<% end %>
+
+<h1><%="#{@user.name}"+" has been a member for "+"#{time_ago_in_words(@user.created_at)}"%></h1>
+
+<% if @user.items.size !=0 %>
+
+  <h2><%="Items "+"#{@user.name}"+ " has posted:"%></h2>
+
+
+    <%@user.items.each do |item|%>
+
+    <ul><%=link_to item.name, item_path(item.id)%></ul>
+    <%end%>
+
+<%else %>
+
+<h2><%="#{@user.name}"+ "has not posted any items :("%></h2>
+
+
+
+
+<%end%>

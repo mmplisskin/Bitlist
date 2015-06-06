@@ -7,8 +7,8 @@
     { name: 'Collectibles' }, { name: 'Computers' }, { name: 'Electronics' },
     { name: 'Furniture' }, { name: 'Heavy Machinery' },
     { name: 'Jewelry' }, { name: 'Materials' }, { name: 'Mining Hardware' },
-    { name: 'Sporting Goods' }, { name: 'Toys' }, { name: 'vehicles' },
-    { name: 'wallets' },
+    { name: 'Sporting Goods' }, { name: 'Toys' }, { name: 'Vehicles' },
+    { name: 'Wallets' },
     ])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
   #

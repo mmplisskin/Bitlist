@@ -42,10 +42,10 @@ Items Show
       <i class="fa fa-info-circle"></i>
 <p>  <%= @item.description %></p>
       <% if @item.user_id !=nil %>
-        Posted by <%= @user.name%>
+        Posted by <%= link_to @user.name, user_path(@item.user_id)%>
         <% end %>
 <p>  <%=time_ago_in_words(@item.created_at)%>
-
+  <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
 
 
 </h3>
@@ -63,5 +63,5 @@ Items Show
                   data: { confirm: 'Are you sure?' } %></td>
 </td>
 <p>
-  <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
+
 <%end  %>

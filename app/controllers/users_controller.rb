@@ -20,6 +20,7 @@ class UsersController < ApplicationController
       @user=User.find(params[:id])
 
       if @user.update_attributes(user_params)
+        flash[:notice] = "Succesfully updated your info!"
         redirect_to @user
       else
         flash.now[:error] = @user.errors.full_messages

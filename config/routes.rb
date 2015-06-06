@@ -3,10 +3,9 @@ Rails.application.routes.draw do
 
 root 'categories#index'
 
-#
+
 get 'categories/:name' => 'categories#show', as: :category
-#
-#
+
 get 'categories/:name/items/:id' => 'items#show', as: :category_item
 
 get 'categories/:name/items/:id/edit' => 'items#edit', as: :edit_category_item
