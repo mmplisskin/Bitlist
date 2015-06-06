@@ -83,19 +83,19 @@
   <%#= params %>
 
 
-
-
-
+  <script>
+    $('#flash').hide().delay(800).fadeIn(800).delay(4000).fadeOut(800)
+  </script>
     <% if flash[:error] %>
         <%#= flash.inspect %>
       <% flash.each do |error, message| %>
-        <div class="alert alert-danger" role="alert"><% error %><%= message %></div>
+        <div class="alert alert-danger" role="alert" id="flash" ><% error %><%= message %></div>
       <% end %>
     <% end %>
 
     <% if flash[:notice] %>
       <% flash.each do |notice, message| %>
-      <div class="alert alert-info" role="alert"><%= flash[:notice] %></div>
+      <div class="alert alert-info" id="flash" role="alert"><%= flash[:notice] %></div>
       <% end %>
     <% end %>
     <%= yield %>
