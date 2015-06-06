@@ -65,7 +65,7 @@
 
 		if @item.save
         @category=Category.find(@item.category_id)
-        # flash.now.notice = 'Item was successfully listed!.'
+        flash[:notice] = 'Item was successfully listed!.'
 		    redirect_to category_item_path(@category.name, @item.id)
 
 		else
