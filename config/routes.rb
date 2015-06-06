@@ -40,7 +40,7 @@ get "users/:id"=> "users#show", as: :user
 
 patch "users/:id"=> "users#update"
 
-delete "/users/:id" => "users#destroy"
+delete "users/:id" => "users#destroy"
 
 
 get '/login'     => 'sessions#new'

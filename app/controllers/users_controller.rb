@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   include SessionsHelper
+
   def index
     @users=User.all
-
 
   end
 
@@ -42,6 +42,14 @@ class UsersController < ApplicationController
         flash.now[:error] = @user.errors.full_messages
         render :new
     end
+  end
+
+  def destroy
+    @user=User.find(params[:id])
+    @user.destroy
+    flash[:notice]="DESTRUCTION COMPLETE"
+    redirect_to root_path
+
   end
 
 

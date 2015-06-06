@@ -10,7 +10,9 @@
 
     <%@user.items.each do |item|%>
 
-    <ul><%=link_to item.name, item_path(item.id)%></ul>
+    <ul><%=link_to item.name, item_path(item.id)%>
+       <%=item.state%>
+       <%=item.city%></ul>
     <%end%>
 
 <%else %>
