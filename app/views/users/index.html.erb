@@ -8,6 +8,7 @@
 
     <% if  @current_user.items.all.size == 0 %>
             You have not created any items :(
+            <p> <%=link_to "Make a post", new_item_path %></p>
 
       <% else %>
             Here are your bits!
@@ -24,8 +25,16 @@
       <%@users.each do |user| %>
 
         <ul><h2><%=link_to user.name, user_path(user)%></h2>
-        <%=link_to "Destroy user they are bad person", user, method: :delete,
-                                                                  data: {confirm: "are you sure?"}%></ul>
+        <h4><%=link_to "Destroy user?", user, method: :delete,
+                                                                  data: {confirm: "Are they a bad person?"}%></h4></ul>
+
+<h2><%user.items.each do |item|%>
+    <%=item.name%>
+    <h4><%=link_to "This item violates our rules", user, method: :delete,
+                                                              data: {confirm: "are you sure?"}%></h4></ul>
+
+</h2>
+<% end %>
 
 
         <% end %>
