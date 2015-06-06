@@ -7,7 +7,7 @@
   <%= favicon_link_tag 'favicon-bitcoin.ico' %>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//maps.googleapis.com/maps/api/js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
@@ -78,10 +78,9 @@
         </ul>
     </nav>
 </header>
+<div class="container">
 
-  <!-- <h1><i class="fa fa-btc"></i>itlist</h1>
-  <hr> -->
-  <%= params %>
+  <%#= params %>
 
 
 
@@ -102,7 +101,7 @@
     <%= yield %>
   </div>
 
-
+</div>
 
 </body>
 </html>

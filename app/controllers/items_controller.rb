@@ -65,7 +65,7 @@
 
 		if @item.save
         @category=Category.find(@item.category_id)
-        flash.now.notice = 'Item was successfully listed!.'
+        # flash.now.notice = 'Item was successfully listed!.'
 		    redirect_to category_item_path(@category.name, @item.id)
 
 		else
@@ -116,7 +116,7 @@
 
 private
   def item_params
-    params.require(:item).permit(:name, :city, :state, :zip, :price, :description, :image, :category_id, :phone_number, :user_id)
+    params.require(:item).permit(:name, :city, :state, :zipcode, :price, :description, :image, :category_id, :phone_number, :user_id)
 
   end
 

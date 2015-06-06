@@ -6,9 +6,15 @@ class Item < ActiveRecord::Base
   validates(:name, presence: true)
   validates(:city, presence: true, length: { maximum: 25 })
   validates(:state, presence: true)
-  validates(:description, presence: true, uniqueness: true, length: { minimum: 60, maximum: 300 })
-  validates(:price, presence: true,:numericality => true, length: { maximum: 6 })
-  validates(:phone_number, presence: true,:numericality => true, length: { minimum: 10, maximum: 10 })
+
+  validates_format_of :zipcode,
+                  with: /\A\d{5}-\d{4}|\A\d{5}\z/,
+                  message: "please enter a valid zip"
+
+  validates(:description, presence: true, uniqueness: true, length: { minimum: 40, maximum: 200 })
+  validates_numericality_of :price, :greater_than => 0, :less_than => 100
+
+  validates(:phone_number, :numericality => true, length: { minimum: 10, maximum: 10 })
 
 
 
@@ -28,7 +34,7 @@ end
 def self.search(params)
 
   items = Item.where("name ILIKE ? OR description ILIKE ?", params[:search], params[:search]) if params[:search].present?
-  items = items.near(params[:location], 20) if params[:location].present?
+  items = items.near(params[:location], 20) if params[:location].present? && params[:search].present?
   items
 
 end

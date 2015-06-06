@@ -12,6 +12,7 @@ test:
   <<: *default
   database: bitlist_test
 
+
 production:
   <<: *default
   database: bitlist_production

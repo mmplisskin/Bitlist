@@ -20,9 +20,9 @@ class UsersController < ApplicationController
       @user=User.find(params[:id])
 
       if @user.update_attributes(user_params)
-        redirect_to root_path
+        redirect_to @user
       else
-        flash.now.error = @user.errors.full_messages
+        flash.now[:error] = @user.errors.full_messages
         render :edit
       end
   end
@@ -35,9 +35,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id.to_s
+        flash.now[:notice] = "Welcome to Bitlist!"
         redirect_to users_path
       else
-        flash.now.error = @user.errors.full_messages
+        flash.now[:error] = @user.errors.full_messages
         render :new
     end
   end

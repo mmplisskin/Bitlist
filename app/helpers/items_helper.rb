@@ -2,11 +2,11 @@ module ItemsHelper
 
   def us_states
     [
+      ['California', 'CA'],
       ['Alabama', 'AL'],
       ['Alaska', 'AK'],
       ['Arizona', 'AZ'],
       ['Arkansas', 'AR'],
-      ['California', 'CA'],
       ['Colorado', 'CO'],
       ['Connecticut', 'CT'],
       ['Delaware', 'DE'],
