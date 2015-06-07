@@ -49,6 +49,10 @@ delete '/logout' => 'sessions#destroy'
 
  get '/search' => "items#search", as: :search_items
 
+ resources :categories, :name => { :format => 'json' } do
+   resources :items, :item_id => { :format => 'json' }
+ end
+
 
  # resources :items, :defaults => { :format => 'json' }
 
@@ -64,9 +68,7 @@ delete '/logout' => 'sessions#destroy'
 
 
 #
-resources :categories, :name => { :format => 'json' } do
-  resources :items, :item_id => { :format => 'json' }
-end
+
 
   #
   #

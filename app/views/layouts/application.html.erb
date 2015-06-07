@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= favicon_link_tag 'favicon-bitcoin.ico' %>
+  <link rel="stylesheet" href="animate.min.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="//maps.googleapis.com/maps/api/js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -17,26 +18,26 @@
 
   <body>
     <header>
-      <div class="col-md-2">
-      </div>
+
       <nav class="navbar navbar-inverse navbar-static-top">
 
 
-        <div class="nav navbar-nav">
+        <div class="navbar">
+          <div class="container">
 
-            <br>
+          <br>
+          <br>
+              <div class="row ">
+                <div class="col-md-8">
 
-            <br>
-            <br>
-              <div class="row">
-                <div id="pay-with-btc"
                 <div id="shine">
-                  <div id="logo">
+
+                  <div id="logo" class="col-md-2" >
 
                       <div id="coin">
-                        <center>
-                          <%= link_to "", root_path, class: 'fa fa-btc b' %>
-                        </center>
+
+                          <%= link_to "", root_path, class: 'fa fa-btc b'  %>
+
                       </div>
 
                       <div class="logo-text"><%= link_to "Bitlist", root_path %>
@@ -44,42 +45,53 @@
                   </div>
 
                 </div>
-              </div
-
-              <div class="col-md-2">
-                <div class="form">
-                  <%= form_tag search_items_path, method: :get do |f| %>
-                  <%= text_field_tag :search, nil, placeholder: 'search', class:"form-control input-md" %>
-                  |
-                  <%= text_field_tag :location, nil, placeholder: 'near', class:"form-control input-md" %>
-                  <p>
-                  <br>
-                  <%= submit_tag "search", class: 'btn btn-primary btn-xl'   %>
-                  </p>
-                  <% end %>
 
               </div>
-              </div
+                <div class="col-md-8">
+                </div>
+              <div class="col-md-3">
+                  <br>
 
-            <br>
-            <br>
+                <div class="form-group">
+
+                  <%= form_tag search_items_path, method: :get do |f| %>
+                  <%= text_field_tag :search, nil, placeholder: 'search', class:"form-control input-sm" %>
+                  <br>
+                  <%= text_field_tag :location, nil, placeholder: 'near', class:"form-control input-sm" %>
+                  <br>
+
+                  <center><%= submit_tag "search", class: 'btn btn-primary navbar-btn-sm'  %></center>
+
+
+                  </p>
+                  <% end %>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
 
 
+              <div class="col-md-5">
+            </div>
+            <div class="col-md-2">
+            <div class="row ">
             <ul class="nav navbar-nav">
+
               <li>
-              <li>
-              <%= link_to "About", static_pages_about_path%>
+                <%= link_to "About", static_pages_about_path%>
               </li>
               <li>
-              <%= link_to "Post Item", new_item_path %>
+                <%= link_to "Post Item", new_item_path %>
               </li>
-              <% if current_user%>
+                <% if current_user%>
               <li>
-              <%= link_to current_user.name + "'s Account",users_path%>
+                <%= link_to current_user.name + "'s Account",users_path%>
               </li>
-              <% else %>
-              <li><%= link_to "Account", users_path %>
+                <% else %>
+              <li>
+                <%= link_to "Account", users_path %>
               </li>
               <% end %>
 
@@ -88,22 +100,21 @@
               <% end %>
             </ul>
           </div>
-        </div>
-        <div class="col-md-2">
-        </div>
+          </div>
+
+
+
       </nav>
     </header>
 
 
   <div class="container">
 
-  <%#= params %>
 
 
-  <script>
-  $('#flash').hide().delay(800).fadeIn(800).delay(4000).fadeOut(800)
-  </script>
+
   <% if flash[:error] %>
+  <i class="fa fa-spinner fa-pulse"></i>
   <%#= flash.inspect %>
   <% flash.each do |error, message| %>
   <div class="alert alert-danger" role="alert" id="flash" ><% error %><%= message %></div>
