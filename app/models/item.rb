@@ -33,7 +33,7 @@ end
 
 def self.search(params)
 
-  items = Item.where("name ILIKE ? OR description ILIKE ?", params[:search], params[:search]) if params[:search].present?
+  items = Item.where("name ILIKE ? OR description ILIKE ?", "%" + params[:search] + "%", "%" + params[:search] + "%") if params[:search].present?
   items = items.near(params[:location], 20) if params[:location].present? && params[:search].present?
   items
 

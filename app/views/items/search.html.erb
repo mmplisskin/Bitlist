@@ -4,12 +4,13 @@
   </h1>
 <%if @items !=nil%>
     <%@items.each do |item|%>
-    <%end%>
+
     <ul>
       <h2>
         <p><hr><%=link_to item.name, item_path(item.id)%></p></br>
       </h2>
     </ul>
+    <%end%>
 <%else flash.now.notice = " :( Sorry nothing matches your search info.. Please try again. " %>
 <%= flash[:notice] %>
   <%end%>

@@ -46,6 +46,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user=User.find(params[:id])
+    @user.items.destroy_all
     @user.destroy
     flash[:notice]="DESTRUCTION COMPLETE"
     redirect_to root_path

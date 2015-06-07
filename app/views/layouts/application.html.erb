@@ -45,9 +45,9 @@
 
                 </div>
               </div
-            
 
-              <div class="form">
+              <div class="col-md-2">
+                <div class="form">
                   <%= form_tag search_items_path, method: :get do |f| %>
                   <%= text_field_tag :search, nil, placeholder: 'search', class:"form-control input-md" %>
                   |
@@ -59,6 +59,7 @@
                   <% end %>
 
               </div>
+              </div
 
             <br>
             <br>

@@ -23,7 +23,7 @@ function initialize() {
     mapTypeId:google.maps.MapTypeId.HYBRID
   };
   var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-var image = 'app/assets/images/Gold-Bitcoin.png'
+
 var marker = new google.maps.Marker({
 
   position:myCenter,

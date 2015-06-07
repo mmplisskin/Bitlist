@@ -84,4 +84,7 @@ config.paperclip_defaults = {
     :bucket => 'bitlist'
   }
 }
+
+
+
 end
