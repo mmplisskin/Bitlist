@@ -25,7 +25,7 @@ function initialize() {
 
     var marker = new google.maps.Marker({
       position:myCenter
-      // animation:google.maps.Animation.BOUNCE
+
     });
 
     marker.setMap(map);
