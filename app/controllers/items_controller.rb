@@ -86,7 +86,7 @@
   def edit
     @item = Item.find_by(id: params[:id])
 
-    unless current_user && current_user.id == @item.user_id
+    unless current_user && current_user.id == @item.user_id || current_user.admin?
       redirect_to root_path
       logger.info @item.inspect
     end
