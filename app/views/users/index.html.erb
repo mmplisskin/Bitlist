@@ -17,7 +17,7 @@
             <h1>Here are your bits:</h1>
             <%@current_user.items.each do |item|%>
 
-              <h3><%=link_to item.name, category_item_path(item.category_id,item.id) %>
+              <h3><%=link_to item.name, category_item_path(item.category_id, item.id) %>
                   <%=link_to "edit", edit_category_item_path(item.category_id,item.id) %></h3>
           <% end %>
         </center>
@@ -30,7 +30,7 @@
     <h4><%=link_to "Destroy user?", user, method: :delete,
       data: {confirm: "Are they a bad person?"}%></h4>
     <%user.items.each do |item|%>
-    <h2><%=item.name%></h2>
+    <h2><%=link_to item.name, category_item_path(item.category_id,item.id)%></h2>
     <h4><%=link_to "This item violates our rules", user, method: :delete,
                     data: {confirm: "are you sure?"}%></h4></ul>
     <% end %>
