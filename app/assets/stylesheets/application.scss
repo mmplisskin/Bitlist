@@ -8,9 +8,7 @@
   *= require rails_bootstrap_forms
   */
 
-.body{
-  margin: 0 auto;
-}
+
 
  #pay-with-btc {
    position:relative;
@@ -27,9 +25,8 @@ box-shadow: 0px -12px 35px -2px rgba(0,0,0,0.75);
 
  }
 
-.container-fluid{
-  margin: 0 auto;
-}
+
+
 
  #shine {
    position:absolute;
@@ -108,7 +105,6 @@ box-shadow: 0px -12px 35px -2px rgba(0,0,0,0.75);
  }
  h2{
     text-align: center;
-    padding: 1vw;
 
 
 
@@ -131,7 +127,11 @@ box-shadow: 0px -12px 35px -2px rgba(0,0,0,0.75);
      -webkit-text-fill-color: transparent;
      position:relative;
  }
- .form{}
+span{
+
+  display: inline-block;
+  padding: 10px;
+}
 
  // .accept {
  //   position:relative;

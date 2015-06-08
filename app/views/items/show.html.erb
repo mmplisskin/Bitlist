@@ -1,63 +1,77 @@
 <div class="container">
-<h1>
+
+
+  <h2>
     <%= @item.name %>
-</h1>
-
-<h2>
-
-
-
-
+  </h2>
+    <br>
+    <h4><%= @item.state %> <%= @item.city %></h4>
+    <br>
+  <div id="googleMap" style="width:80vw;height:20vw;"></div>
 
 
-  <div id="googleMap" style="width:800px;height:380px;"></div>
-  
+  <div class="row">
+    <i class="fa fa-usd"></i>
+      <%= number_with_precision @dollar_amount=@rate*@item.price, :precision => 2 %>
+      <i class="fa fa-btc"></i>
+        <%= number_with_precision @item.price.to_f, :precision => 2%>
 
-</h2>
-<h3>
 
-  <%= number_with_precision @item.price.to_f, :precision => 2 %>
 
-    <i class="fa fa-btc"></i>
 
-    <p> <%= number_with_precision @dollar_amount=@rate*@item.price, :precision => 2 %>
-      <i class="fa fa-usd"></i></p>
-<p>  <i class="fa fa-phone"></i>
 
-        <% if @item.image? %>
-<%= image_tag @item.image.url(:large) %>
-        <% end %>
-<p>  <%= @item.phone_number %><p>
-  <p>   <%= @item.city %><p>
-  <%= @item.state %>
-  <%= @item.zipcode %>
-      </p>
 
-      <i class="fa fa-info-circle"></i>
-<p>  <%= @item.description %></p>
-      <% if @item.user_id !=nil %>
-        Posted by <%= link_to @user.name, user_path(@item.user_id)%>
-        <% end %>
-<p>  <%=time_ago_in_words(@item.created_at)%>
+
+
+
+
+  <% if @item.image? %>
+  <%= image_tag @item.image.url(:large) %>
+  <% end %>
+
+  <div class="row">
+  <i class="fa fa-phone"></i>
+
+    <%= @item.phone_number %>
+  </div>
+
+
+
+  <br>
+  <br>
+  <br>
+
+  <div class="row">
+
+
+  <i class="fa fa-info-circle"> </i>
+   <%= @item.description %> </p>
+ </div>
+
+  <% if @item.user_id !=nil %>
+  Posted by  <%= link_to @user.name, user_path(@item.user_id)%>
+  <% end %>
+    <%=time_ago_in_words(@item.created_at)%>
   <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
 
 
-</h3>
 
 
-<br>
+
+  <br>
+  <br>
 
 
-<% if current_user != nil && current_user.id == @item.user_id %>
+  <% if current_user != nil && current_user.id == @item.user_id %>
 
-<%= link_to 'Edit', edit_category_item_path %>
-<%#= link_to 'Delete', edit_category_item_path %>
-<%= link_to 'Delete', item_path,
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-</td>
-<p>
+  <%= link_to 'Edit', edit_category_item_path %>
+  <%#= link_to 'Delete', edit_category_item_path %>
+  <%= link_to 'Delete', item_path,
+  method: :delete,
+  data: { confirm: 'Are you sure?' } %></td>
+  </td>
 
-<%end  %>
 
+  <%end  %>
+</div>
 </div>

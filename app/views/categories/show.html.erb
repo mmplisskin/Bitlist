@@ -1,27 +1,23 @@
 
 <div class="container">
-
-
-
-
-<h1><%=@category.name%></h1>
-<%=link_to "All categories", root_path, class:'h4'%>
-
-
-
-
-
-
-      <%@category.items.each do |item|%>
-
-      <div class="row">
-          <center>
-            <h2><%=link_to item.name, category_item_path(@category.name, item.id)%></h2>
-              <%= item.city %>
-              <%= item.zipcode %>
-          </center>
-
-      </div>
+  <h1><%=@category.name%>
+  </h1>
+  <h2>
+    <%=link_to " All categories", root_path, class:'h4'%>
+  </h2>
+  <div class="col-md-12">
+    <%@category.items.each_slice(2) do |slice|%>
+  <hr>
+  <% slice.each do |item| %>
+  <div class="row">
+    <div class="col-md-6">
+        <h2><%=link_to item.name, category_item_path(@category.name, item.id)%>
+        </h2>
+      <%= item.city %>
+      <%= item.zipcode %>
+    </div>
   <%end%>
-
+  </div>
+  <%end%>
 </div>
+</div

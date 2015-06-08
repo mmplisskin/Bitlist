@@ -1,24 +1,28 @@
 
 
+<div class="container">
 
 <% if current_user %>
-
+  <div class="row">
   <h1><%= "Hi "+ "#{current_user.name}"%></h1>
   <h4>  <%= link_to "Update Account", edit_user_path(current_user)%></h4>
+</div>
 
     <% if  @current_user.items.all.size == 0 %>
             You have not created any items :(
             <p> <%=link_to "Make a post", new_item_path %></p>
 
       <% else %>
-            Here are your bits!
+      <center>
+            <h1>Here are your bits:</h1>
             <%@current_user.items.each do |item|%>
 
-              <p><%=link_to item.name, category_item_path(item.category_id,item.id) %>
-                  <%=link_to "edit", edit_category_item_path(item.category_id,item.id) %></p>
+              <h3><%=link_to item.name, category_item_path(item.category_id,item.id) %>
+                  <%=link_to "edit", edit_category_item_path(item.category_id,item.id) %></h3>
           <% end %>
+        </center>
     <% end %>
-
+</div>
     <% if @current_user.admin? %>
 
     <%@users.each do |user| %>
@@ -37,12 +41,14 @@
     <br>
     <hr>
     <br>
-      <h2>
-      Please <%= link_to 'Log In', login_path %>
-      </h2>
-      <h3> Or</h3>
-      <h2>
-      <%= link_to 'Sign Up', new_user_path %>
-      </h2>
+    <h2>
+    <div class=square>
+     <%= link_to 'Log In', login_path %></h2>   <h3> Or</h3>
+    <h2>
+    <%= link_to 'Sign Up', new_user_path %>
+    </h2>
+  </div>
     </center>
   <% end %>
+
+</div>

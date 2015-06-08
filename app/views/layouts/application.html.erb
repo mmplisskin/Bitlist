@@ -84,27 +84,37 @@
               <center class=navbar-nav>
                 <div class="col-md-12">
 
-                <h2>
+                <span>
+                  <h2>
 
                 <%= link_to "About", static_pages_about_path%>
-              </h2>
-              <h2>
+              </span>
+            </h2>
+              <span>
+                <h2>
                 <%= link_to "Post", new_item_path%>
-              </h2>
+              </span>
+            </h2>
                 <% if current_user%>
-              <h2>
+              <span>
+                <h2>
                 <%= link_to current_user.name + "'s Account",users_path%>
-              </h2>
+              </span>
+            </h2>
                 <% else %>
-              <h2>
+              <span>
+                <h2>
                 <%= link_to "Account", users_path %>
-              </h2>
+              </span>
+            </h2>
                 <% end %>
-              <h2>
+              <span>
+                <h2>
               <% if current_user %>
                 <%= link_to 'Log Out', logout_path, method: :delete %>
               <% end %>
-            </h2>
+            </span>
+          </h2>
           </div>
           </center>
 
@@ -118,7 +128,6 @@
     </header>
 
 
-  <div class="container">
 
 
 
@@ -146,7 +155,7 @@
   <% end %>
 </div>
 
-</div>
+
   <%= yield %>
 
 
