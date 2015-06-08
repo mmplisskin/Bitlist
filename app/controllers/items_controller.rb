@@ -24,6 +24,7 @@
 
     if @item.user_id !=nil
       @user=User.find(@item.user_id)
+
     end
 
 
@@ -52,7 +53,12 @@
 
 
   def new
-		@item=Item.new
+    if current_user
+		    @item=Item.new
+    else
+    redirect_to login_path
+    flash[:notice]="     Please sign in first"
+    end
 	end
 
   def create
@@ -61,6 +67,7 @@
 
     if current_user
       @item.user_id = current_user.id
+
     end
 
 		if @item.save
