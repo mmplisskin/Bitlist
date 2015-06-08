@@ -1,7 +1,4 @@
-<h1>categories/show/views
 
-
-  </h1>
 <%if @items !=nil%>
     <%@items.each do |item|%>
 
@@ -12,6 +9,6 @@
     </ul>
     <%end%>
 <%else flash.now.notice = " :( Sorry nothing matches your search info.. Please try again. " %>
-<%= flash[:notice] %>
+
   <%end%>
   <%=link_to "All categories", root_path%>

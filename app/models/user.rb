@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, confirmation: true, length: { in: 6..20 }
 
 
+
 end

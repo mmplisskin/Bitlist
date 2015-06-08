@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   include SessionsHelper
 
@@ -8,8 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
-    # @item=Item.find(@user_id)
-    # @user=User.find(@item.user_id)
+
   end
 
   def edit

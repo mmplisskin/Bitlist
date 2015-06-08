@@ -26,6 +26,8 @@ gem 'font-awesome-sass'
 
 gem 'geocoder'
 
+gem 'bootstrap_form'
+
 
 gem 'bcrypt', '~> 3.1.7'
 

@@ -17,6 +17,7 @@
 </head>
 
   <body>
+
     <header>
 
       <nav class="navbar navbar-inverse navbar-static-top">
@@ -49,58 +50,67 @@
               </div>
                 <div class="col-md-8">
                 </div>
-              <div class="col-md-3">
+              <div class="row">
+              <div class="col-lg-4">
                   <br>
 
-                <div class="form-group">
+                <div class="input-group">
+                  <div class="row">
 
-                  <%= form_tag search_items_path, method: :get do |f| %>
-                  <%= text_field_tag :search, nil, placeholder: 'search', class:"form-control input-sm" %>
-                  <br>
-                  <%= text_field_tag :location, nil, placeholder: 'near', class:"form-control input-sm" %>
-                  <br>
-
-                  <center><%= submit_tag "search", class: 'btn btn-primary navbar-btn-sm'  %></center>
-
-
-                  </p>
+                  <%= form_tag search_items_path, method: :get, :class => "form-inline" do %>
+                      <%= text_field_tag :search, nil, placeholder: 'search' %>
+                      <%= text_field_tag :location, nil, placeholder: 'near' %>
+                      <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
                   <% end %>
+                  <br>
+                  <br>
+                  <div class="col-md-4">
+                  </div>
                 </div>
                 </div>
+                </div>
+              </div>
               </div>
             </div>
           </div>
 
 
 
-              <div class="col-md-5">
+              <div class="col-md-4">
             </div>
-            <div class="col-md-2">
+            <center>
             <div class="row ">
-            <ul class="nav navbar-nav">
 
-              <li>
+              <center class=navbar-nav>
+                <div class="col-md-12">
+
+                <h2>
+
                 <%= link_to "About", static_pages_about_path%>
-              </li>
-              <li>
-                <%= link_to "Post Item", new_item_path %>
-              </li>
+              </h2>
+              <h2>
+                <%= link_to "Post", new_item_path%>
+              </h2>
                 <% if current_user%>
-              <li>
+              <h2>
                 <%= link_to current_user.name + "'s Account",users_path%>
-              </li>
+              </h2>
                 <% else %>
-              <li>
+              <h2>
                 <%= link_to "Account", users_path %>
-              </li>
+              </h2>
+                <% end %>
+              <h2>
+              <% if current_user %>
+                <%= link_to 'Log Out', logout_path, method: :delete %>
               <% end %>
+            </h2>
+          </div>
+          </center>
 
-              <li> <% if current_user %>
-              <%= link_to 'Log Out', logout_path, method: :delete %></li>
-              <% end %>
-            </ul>
+
           </div>
-          </div>
+        </center>
 
 
 
@@ -114,10 +124,11 @@
 
 
   <% if flash[:error] %>
-  <i class="fa fa-spinner fa-pulse"></i>
+
   <%#= flash.inspect %>
   <% flash.each do |error, message| %>
-  <div class="alert alert-danger" role="alert" id="flash" ><% error %><%= message %></div>
+
+  <div class="alert alert-danger" class="fa fa-spinner fa-pulse" role="alert" id="flash" ><% error %><%= message %>&nbsp&nbsp<i class="fa fa-exclamation-triangle"></i></div>
   <% end %>
   <% end %>
 
@@ -126,10 +137,19 @@
   <div class="alert alert-info" id="flash" role="alert"><%= flash[:notice] %></div>
   <% end %>
   <% end %>
+
+
+  <% if flash[:succes] %>
+  <% flash.each do |success, message| %>
+  <div class="alert alert-success" id="flash" role="alert"><%= flash[:sucess]%></div>
+  <% end %>
+  <% end %>
+</div>
+
+</div>
   <%= yield %>
-  </div>
 
-  </div>
 
-  </body>
+</body>
+
 </html>
