@@ -24,7 +24,7 @@ users=User.create([{name: "Maxwell",
     admin: true},
 
 
-    {name: "John_mcdonalds_farm",
+    {name: "John",
     email: "john@gmail.com",
     password: "123456",
     password_confirmation: "123456"},
@@ -46,7 +46,7 @@ users=User.create([{name: "Maxwell",
     password: "123456",
     password_confirmation: "123456"},
 
-    {name: "Surfer_Daily",
+    {name: "Daily",
     email: "surfer@gmail.com",
     password: "123456",
     password_confirmation: "123456"},

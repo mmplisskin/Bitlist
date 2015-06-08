@@ -6,53 +6,57 @@
   </h2>
     <br>
     <h4><%= @item.state %> <%= @item.city %></h4>
+    <% if @item.user_id !=nil %>
+    Posted by  <%= link_to @user.name, user_path(@item.user_id)%>
+    <% end %>
+      <%=time_ago_in_words(@item.created_at)%>
+    <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
     <br>
   <div id="googleMap" style="width:80vw;height:20vw;"></div>
 
+    <br>
+    <br>
 
+<div class="col-md-6">
   <div class="row">
+    <h1>
     <i class="fa fa-usd"></i>
       <%= number_with_precision @dollar_amount=@rate*@item.price, :precision => 2 %>
+    </h1>
+    </div>
+
+    <div class="row">
+      <h1>
       <i class="fa fa-btc"></i>
         <%= number_with_precision @item.price.to_f, :precision => 2%>
-
-
-
-
-
-
-
-
-
-
-  <% if @item.image? %>
-  <%= image_tag @item.image.url(:large) %>
-  <% end %>
-
+      </h1>
+    </div>
   <div class="row">
+
+  <h1>
   <i class="fa fa-phone"></i>
 
     <%= @item.phone_number %>
+  </h1>
   </div>
 
 
 
-  <br>
-  <br>
-  <br>
-
+</div>
+<div class="row">
+    <% if @item.image? %>
+    <%= image_tag @item.image.url(:large) %>
+    <% end %>
+</div>
   <div class="row">
-
-
+    <div class="col-md-6">
+    <h1>
   <i class="fa fa-info-circle"> </i>
    <%= @item.description %> </p>
+ </h1>
  </div>
 
-  <% if @item.user_id !=nil %>
-  Posted by  <%= link_to @user.name, user_path(@item.user_id)%>
-  <% end %>
-    <%=time_ago_in_words(@item.created_at)%>
-  <%=link_to "Back to #{@category.name}", "/categories/#{@category.name}"%>
+
 
 
 

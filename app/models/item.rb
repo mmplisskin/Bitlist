@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
                   with: /\A\d{5}-\d{4}|\A\d{5}\z/,
                   message: "please enter a valid zip"
 
-  validates(:description, presence: true, uniqueness: true, length: { minimum: 40, maximum: 200 })
+  validates(:description, presence: true, uniqueness: true, length: { minimum: 40, maximum: 400 })
   validates_numericality_of :price, :greater_than => 0, :less_than => 100
 
   validates(:phone_number, :numericality => true, length: { minimum: 10, maximum: 10 })
