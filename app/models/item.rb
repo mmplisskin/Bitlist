@@ -14,6 +14,7 @@ class Item < ActiveRecord::Base
   validates(:description, presence: true, uniqueness: true, length: { minimum: 40, maximum: 400 })
   validates_numericality_of :price, :greater_than => 0, :less_than => 100
 
+
   validates(:phone_number, :numericality => true, length: { minimum: 10, maximum: 10 })
 
 
@@ -31,10 +32,10 @@ def full_address
 end
 
 
-def self.search(params)
+def self.search(item:, location:)
 
-  items = Item.where("name ILIKE ? OR description ILIKE ?", "%" + params[:search] + "%", "%" + params[:search] + "%") if params[:search].present?
-  items = items.near(params[:location], 20) if params[:location].present? && params[:search].present?
+  items = Item.where("name ILIKE ? OR description ILIKE ?", "%" + item + "%", "%" + item + "%") if item.present?
+  items = items.near(location, 20) if location.present? && item.present?
   items
 
 end

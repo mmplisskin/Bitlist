@@ -116,7 +116,7 @@
   end
 
   def search
-    @items = Item.search(params)
+    @items = Item.search(item: params[:search][:item], location: params[:search][:location])
   end
 
 
