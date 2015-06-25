@@ -14,7 +14,7 @@ test:
 
 
 production:
-  <<: *default
+<<: *default
   database: bitlist_production
-  username: admin_max
-  password: <%= ENV['1234'] %>
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
